@@ -16,6 +16,31 @@
                     >
                     Add BookMark
                     </button>
+                    <hr>
+
+                    @if(!empty($bookmarks))
+                        <h3>My BookMarks</h3>
+                        <ul class="list-group">
+                            @foreach($bookmarks as $bookmark)
+                                <li class="list-group-item clearfix">
+                                    <a href="{{ $bookmark->url }}" style="position: absolute; top: 30%" target="_blank">
+                                        {{ $bookmark->name }}
+
+
+                                    <span class="label label-default">{{ $bookmark->description }}</span> </a>
+                                        <span class="pull-right btn-group">
+                                            <button type="button" name="button" class="btn btn-danger">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                                Delete
+                                            </button>
+                                        </span>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                    @endif
+
+
                 </div>
             </div>
         </div>
@@ -43,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label for="web-desc">Website Description</label>
-                        <textarea name="name" class="form-control" id="web-desc"></textarea>
+                        <textarea name="description" class="form-control" id="web-desc"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" class="btn btn-success" value="Submit">
