@@ -15,4 +15,12 @@ class BookmarksController extends Controller
     {
         return view('home');
     }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'url' => 'required'
+        ]);
+    }
 }
